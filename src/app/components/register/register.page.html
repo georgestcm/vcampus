@@ -1,0 +1,34 @@
+<ion-header>
+  <div class="logo">
+    <img src="assets/vcampus.png" alt="app logo">
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_wrapper">
+    <ion-card>
+  <ion-card-header>
+   <ion-card-title> <span>STUDENT REGISTRATION</span>
+     <img src="assets/vhands.png" alt="">
+   </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+   <ion-label>FIRST NAME</ion-label>
+   <ion-input type="name" [(ngModel)]="studentRegistration.first_name" required><ion-icon name="person"></ion-icon></ion-input>
+   <ion-label>LAST NAME</ion-label>
+   <ion-input type="name" [(ngModel)]="studentRegistration.last_name" required><ion-icon name="person"></ion-icon></ion-input>
+   <ion-label>USERNAME</ion-label>
+   <ion-input type="name" [(ngModel)]="studentRegistration.username" required><ion-icon name="contact"></ion-icon></ion-input>
+   <ion-label>EMAIL</ion-label>
+   <ion-input type="email" [(ngModel)]="studentRegistration.email" required><ion-icon name="mail"></ion-icon></ion-input>
+   <ion-label>PASSWORD</ion-label>
+   <ion-input type="password" type="password"[(ngModel)]="studentRegistration.password" required><ion-icon name="key"></ion-icon></ion-input>
+   <ion-label>RE-ENTER PASSWORD</ion-label>
+   <ion-input type="password" [(ngModel)]="this.password.reEnter" required><ion-icon name="key"></ion-icon></ion-input>
+   <ion-button (click)="register()" >REGISTER</ion-button>
+  </ion-card-content>
+  </ion-card>
+  </div>
+
+</ion-content>

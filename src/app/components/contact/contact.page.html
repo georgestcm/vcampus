@@ -1,0 +1,27 @@
+<ion-header>
+  <div class="logo">
+    <img src="assets/vcampus.png" alt="app logo">
+  </div>
+</ion-header>
+
+<ion-content>
+<div class="main_wrapper">
+  <ion-card>
+<ion-card-header>
+ <ion-card-title> <span>CONTACT US</span>
+   <img src="assets/vhands.png" alt="">
+ </ion-card-title>
+</ion-card-header>
+
+<ion-card-content>
+ <ion-label>NAME</ion-label>
+ <ion-input type="name" required><ion-icon name="person"></ion-icon></ion-input>
+ <ion-label>EMAIL</ion-label>
+ <ion-input type="password" required><ion-icon name="mail"></ion-icon></ion-input>
+ <ion-label>MESSAGE</ion-label>
+ <ion-textarea rows="300"></ion-textarea>
+ <ion-button (click)="presentAlertSent()" >SEND</ion-button>
+</ion-card-content>
+</ion-card>
+</div>
+</ion-content>
