@@ -1,0 +1,107 @@
+ion-header {
+  background-color: #191923;
+  height: 60px;
+}
+
+ion-header div.title {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ion-content div.wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color: #80808036;
+}
+
+ion-content div.wrapper div.add_course {
+  background-color: white;
+  border-radius: 7px;
+  width: 68%;
+  margin: 20px 0 0 10%;
+  display: inline-block;
+  float: left;
+}
+
+ion-content div.wrapper div.course_details {
+  display: inline-block;
+  float: right;
+  width: 20%;
+  margin: 20px 20px 0 0;
+}
+
+ion-content div.wrapper div.course_details ion-card {
+  margin: 0;
+  background-color: white;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo {
+  height: 100px;
+  border-radius: 14px;
+  border: 1px solid #80808030;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo div.img {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo div.upload_btn {
+  width: 50%;
+  display: inline-block;
+  float: right;
+  height: 100%;
+  border-radius: inherit;
+  background-color: #1297ff;
+  transition: 1s;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo div.upload_btn:hover {
+  background-color: #1297ff8c;
+  transition: 1s;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo div.upload_btn .btn_text {
+  height: inherit;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo div.upload_btn .btn_text p {
+  text-align: center;
+  color: white;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content .course_logo div.upload_btn .btn_text ion-icon {
+  color: white;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content div.course_subject {
+  margin-bottom: 10px;
+}
+
+ion-content div.wrapper div.course_details ion-card ion-card-content div.add_course_btn {
+  margin-left: 110px;
+}
+
+ion-content ion-input {
+  border-radius: 14px;
+  border: 1px solid #80808030;
+  height: 30px;
+}
+
+ion-content ion-textarea {
+  border-radius: 14px;
+  border: 1px solid #80808030;
+}
