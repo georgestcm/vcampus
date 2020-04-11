@@ -63,6 +63,10 @@ ion-content div.placeholder {
   color: white;
 }
 
+.add_role:focus {
+  outline: 0;
+}
+
 .courses {
   width: 79.8%;
   position: relative;

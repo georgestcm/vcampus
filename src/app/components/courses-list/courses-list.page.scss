@@ -56,6 +56,10 @@ ion-content {
       }
     }
   }
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .courses {
