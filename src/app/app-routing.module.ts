@@ -2,53 +2,281 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import { AdminPage } from './admin/admin.page';
-import { AdminDashboardPage } from './admin-dashboard/admin-dashboard.page';
+import { AdminDashboardPage } from './adminComponents/admin-dashboard/admin-dashboard.page';
+import {AdminPermissionPage} from './adminComponents/admin-permission/admin-permission.page';
+import {SchoolListPage} from './components/school-list/school-list.page';
+import {StudentListPage} from './components/student-list/student-list.page';
+import {TeacherListPage} from './components/teacher-list/teacher-list.page';
+import {CoursesListPage} from './components/courses-list/courses-list.page';
+import {LoginPage} from './components/login/login.page';
+import {REditorPage} from './r-editor/r-editor.page';
+import {RSchoolPage} from './r-school/r-school.page';
+import {RSchoolStaffPage} from './r-school-staff/r-school-staff.page';
+import {RTeacherPage} from './r-teacher/r-teacher.page';
+import {RStudentsPage} from './r-students/r-students.page';
+import {AddCoursePage} from './r-teacher-components/add-course/add-course.page'
+import {AboutPage} from './components/about/about.page';
+import {ContactPage} from './components/contact/contact.page';
+import {RegisterPage} from './components/register/register.page';
+import {StudentPageCourseListPage} from './components/student-page-course-list/student-page-course-list.page';
+import { TeacherGuard} from './teacher.guard';
+import { AdminGuard } from './admin.guard';
+import { EditorGuard} from './editor.guard';
+import { SchoolGuard} from './school.guard';
+import {StudentGuard} from './student.guard';
+import {SchoolStaffGuard} from './schoolstaff.guard';
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '',
+  redirectTo: 'login',
+  pathMatch: 'full'
+},
   {
     path: 'login',
-    loadChildren: () => import('./components/login/login.module').then( m => m.LoginPageModule)
+    component: LoginPage
+  },
+  {
+    path:'admin',
+    redirectTo:'admin/dashboard',
+    pathMatch:'full'
+  },
+  {
+    path:'editor',
+    redirectTo:'editor/dashboard',
+    pathMatch:'full'
   },
   {
     path: 'admin',
     component: AdminPage,
+    canActivate: [AdminGuard],
     children: [
       { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
       {
+        path: 'school-list',
+      component: SchoolListPage,
+      pathMatch:"full"
+      },
+      {
+        path: 'student-list',
+        component: StudentListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'teacher-list',
+        component: TeacherListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'courses-list',
+        component: CoursesListPage,
+        pathMatch:"full"
+      },
+      {
         path: 'permissions',
-        loadChildren: () => import('./components/permissions/permissions.module').then( m => m.PermissionsPageModule)
+        component: AdminPermissionPage,
+        pathMatch:"full"
       }
     ]
   },
   {
-    path:"admin",
-    redirectTo:'dashboard'
+    path: 'editor',
+    component:REditorPage,
+    canActivate: [EditorGuard],
+    children: [
+      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
+      {
+        path: 'school-list',
+      component: SchoolListPage,
+      pathMatch:"full"
+      },
+      {
+        path: 'student-list',
+        component: StudentListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'teacher-list',
+        component: TeacherListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'courses-list',
+        component: CoursesListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'permissions',
+        component: AdminPermissionPage,
+        pathMatch:"full"
+      }
+    ]
   },
   {
-    path: 'teacher',
-    loadChildren: () => import('./teacher/teacher.module').then( m => m.TeacherPageModule)
-    //route works as intended
+    path: 'rschool',
+    component:RSchoolPage,
+    canActivate: [SchoolGuard],
+    children: [
+      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
+      {
+        path: 'school-list',
+      component: SchoolListPage,
+      pathMatch:"full"
+      },
+      {
+        path: 'student-list',
+        component: StudentListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'teacher-list',
+        component: TeacherListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'courses-list',
+        component: CoursesListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'permissions',
+        component: AdminPermissionPage,
+        pathMatch:"full"
+      }
+    ]
   },
   {
-    path: 'about',
-    loadChildren: () => import('./components/about/about.module').then( m => m.AboutPageModule)
-    //route works as intended
+    path: 'rschoolstaff',
+    component:RSchoolStaffPage,
+    canActivate: [SchoolStaffGuard],
+    children: [
+      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
+      {
+        path: 'school-list',
+      component: SchoolListPage,
+      pathMatch:"full"
+      },
+      {
+        path: 'student-list',
+        component: StudentListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'teacher-list',
+        component: TeacherListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'courses-list',
+        component: CoursesListPage,
+        pathMatch:"full"
+      },
+      {
+        path: 'permissions',
+        component: AdminPermissionPage,
+        pathMatch:"full"
+      }
+    ]
   },
   {
-    path: 'schools',
-    loadChildren: () => import('./schools/schools.module').then( m => m.SchoolsPageModule)
-    //route works as intended
+    path: 'rteacher',
+  component: RTeacherPage,
+  canActivate: [TeacherGuard],
+  children: [
+    { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
+    {
+      path: 'school-list',
+    component: SchoolListPage,
+    pathMatch:"full"
+    },
+    {
+      path: 'student-list',
+      component: StudentListPage,
+      pathMatch:"full"
+    },
+    {
+      path: 'teacher-list',
+      component: TeacherListPage,
+      pathMatch:"full"
+    },
+    {
+      path:"courses-list/add-course",
+      component:AddCoursePage
+    },
+    {
+      path: 'courses-list',
+      component: CoursesListPage
+    },
+    {
+      path: 'permissions',
+      component: AdminPermissionPage,
+      pathMatch:"full"
+    }
+  ]
+
   },
   {
-    path: 'contact',
-    loadChildren: () => import('./components/contact/contact.module').then( m => m.ContactPageModule)
-    //route works as intended
+    path: 'rstudents',
+  component:RStudentsPage,
+  canActivate: [StudentGuard],
+  children: [
+    { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
+    {
+      path: 'school-list',
+    component: SchoolListPage,
+    pathMatch:"full"
+    },
+    {
+      path: 'student-list',
+      component: StudentListPage,
+      pathMatch:"full"
+    },
+    {
+      path: 'teacher-list',
+      component: TeacherListPage,
+      pathMatch:"full"
+    },
+    {
+      path: 'courses-list',
+      component: CoursesListPage,
+      pathMatch:"full"
+    },
+    {
+      path: 'permissions',
+      component: AdminPermissionPage,
+      pathMatch:"full"
+    }
+  ]
+
   },
   {
     path: 'register',
-    loadChildren: () => import('./components/register/register.module').then( m => m.RegisterPageModule)
-    //route works as intended
-  }
+    component: RegisterPage,
+    pathMatch:"full",
+    children: [
+      {
+        path: 'student-page-course-list',
+        component: StudentPageCourseListPage,
+        pathMatch:"full"
+      }
+    ]
+  },
+  {
+    path: 'about',
+    component: AboutPage,
+    pathMatch:"full"
+  },
+  {
+    path: 'contact',
+    component: ContactPage,
+    pathMatch:"full"
+  },
+  {
+    path: 'add-staff',
+    loadChildren: () => import('./components/add-staff/add-staff.module').then( m => m.AddStaffPageModule)
+  },
+  {
+    path: 'school-register',
+    loadChildren: () => import('./components/school-register/school-register.module').then( m => m.SchoolRegisterPageModule)
+  },
 ];
 
 @NgModule({
