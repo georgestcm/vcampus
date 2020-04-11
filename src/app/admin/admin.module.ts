@@ -15,6 +15,6 @@ import { AdminPage } from './admin.page';
     IonicModule,
     AdminPageRoutingModule
   ],
-  declarations: [AdminPage]
+  declarations: []
 })
 export class AdminPageModule {}
