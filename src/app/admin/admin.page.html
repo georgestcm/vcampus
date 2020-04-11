@@ -1,11 +1,11 @@
-<ion-menu side="start" menuId="first">
+<ion-menu side="start" menuId="first" contentId="menu-content">
   <ion-header>
     <div class="user">
       <div class="icon">
           <img src="/assets/person.png" alt="account icon">
       </div>
       <div class="account_info">
-         <h6>Landry Deuboue</h6>
+         <h6>{{userName.first_name}} {{userName.last_name}}</h6>
          <p><ion-icon name="person"></ion-icon>Admin</p>
       </div>
     </div>
@@ -15,15 +15,13 @@
       <ion-item lines="none" (click)=toDashboard()> <ion-icon name="stats"></ion-icon>Dashboard</ion-item>
       <ion-item lines="none"> <ion-icon name="more"></ion-icon>Virtual campus center</ion-item>
       <ion-item lines="none"><div> <ion-icon name="chatboxes"></ion-icon>Messages </div></ion-item>
-      <ion-item lines="none"> <ion-icon name="home"></ion-icon>Schools</ion-item>
-      <ion-item lines="none"><ion-icon name="people"></ion-icon>Students</ion-item>
-      <ion-item lines="none"><ion-icon name="person"></ion-icon>Teachers</ion-item>
-      <ion-item lines="none"> <ion-icon name="book"></ion-icon>courses</ion-item>
-      <ion-item lines="none"  (click)=toPermisions()><ion-icon name="key"></ion-icon>Permissions</ion-item>
-      <ion-item lines="none" ><ion-icon name="log-out"></ion-icon>Log out</ion-item>
+      <ion-item lines="none" (click)="toSchoolList()"><ion-icon name="home"></ion-icon>Schools</ion-item>
+      <ion-item lines="none" (click)="toStudentList()"><ion-icon name="people" ></ion-icon>Students</ion-item>
+      <ion-item lines="none" (click)="toTeacherList()"><ion-icon name="person"></ion-icon>Teachers</ion-item>
+      <ion-item lines="none" (click)="toCourseList()"><ion-icon name="book"></ion-icon>courses</ion-item>
+      <ion-item lines="none"  (click)=toPermissions()><ion-icon name="key"></ion-icon>Permissions</ion-item>
+      <ion-item lines="none" (click)="logoutUser()"><ion-icon name="log-out"></ion-icon>Log out</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-router-outlet main>
-
-</ion-router-outlet>
+<ion-router-outlet id="menu-content"></ion-router-outlet>
