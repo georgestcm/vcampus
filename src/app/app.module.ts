@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule , HTTP_INTERCEPTORS,HttpClient} from "@angular/common/http"
 import { RouteReuseStrategy } from '@angular/router';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -13,8 +13,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { LanguageSelectPage} from './components/language-select/language-select.page';
 import { IonicStorageModule } from '@ionic/storage';
 import { AdminPage } from './admin/admin.page';
-import { AdminDashboardPage } from './admin-dashboard/admin-dashboard.page';
-import {PermissionsPage} from './components/permissions/permissions.page'
+import { AdminDashboardPage } from './adminComponents/admin-dashboard/admin-dashboard.page';
+import {AdminPermissionPage} from './adminComponents/admin-permission/admin-permission.page';
+import {SchoolListPage} from './components/school-list/school-list.page';
+import {StudentListPage} from './components/student-list/student-list.page';
+import {TeacherListPage} from './components/teacher-list/teacher-list.page';
+import {CoursesListPage} from './components/courses-list/courses-list.page';
+import { TokenInterceptorService} from './token-interceptor.service'
+import { AuthService } from './auth.service';
+import { AdminGuard} from './admin.guard';
+import { EditorGuard} from './editor.guard';
+import { SchoolGuard} from './school.guard';
+import {StudentGuard} from './student.guard';
+import {SchoolStaffGuard} from './schoolstaff.guard';
+import { TeacherGuard} from './teacher.guard';
+import {RSchoolPage} from './r-school/r-school.page';
+import {LoginPage} from './components/login/login.page';
+import {AboutPage} from './components/about/about.page';
+import {ContactPage} from './components/contact/contact.page';
+import {RegisterPage} from './components/register/register.page';
+import {REditorPage} from './r-editor/r-editor.page'
+import {StudentPageCourseListPage} from './components/student-page-course-list/student-page-course-list.page';
+import { AddSchoolPage } from './components/add-school/add-school.page';
+import {RSchoolStaffPage} from './r-school-staff/r-school-staff.page';
+import {AddCoursePage} from './r-teacher-components/add-course/add-course.page'
+import {RTeacherPage} from './r-teacher/r-teacher.page';
+import {RStudentsPage} from './r-students/r-students.page';
+import {AddStaffPage} from './components/add-staff/add-staff.page'
+import {SchoolRegisterPage} from './components/school-register/school-register.page';
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -23,14 +49,36 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent,
+    AboutPage,
+    ContactPage,
+    RSchoolStaffPage,
+    RTeacherPage,
+    RStudentsPage,
+    RegisterPage,
     LanguageSelectPage,
     AdminPage,
-    PermissionsPage,
-    AdminDashboardPage
+    AdminDashboardPage,
+    AdminPermissionPage,
+    TeacherListPage,
+    StudentListPage,
+    SchoolListPage,
+    CoursesListPage,
+    StudentPageCourseListPage,
+    LoginPage,
+    AddSchoolPage,
+    REditorPage,
+    RSchoolPage,
+    AddCoursePage,
+    AddStaffPage,
+    SchoolRegisterPage
   ],
   entryComponents: [
     LanguageSelectPage,
-    AdminPage
+    AdminPage,
+    StudentPageCourseListPage,
+    AddSchoolPage,
+    AddStaffPage,
+    SchoolRegisterPage
   ],
   imports: [BrowserModule,FormsModule,HttpClientModule,IonicStorageModule.forRoot({
       name: '__mydb',
@@ -47,7 +95,15 @@ driverOrder: ['localstorage','sqlite', 'websql']
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    AuthService,
+    AdminGuard,
+    EditorGuard,
+    SchoolGuard,
+    StudentGuard,
+    TeacherGuard,
+    SchoolStaffGuard,
+    TokenInterceptorService,
+  { provide: HTTP_INTERCEPTORS, useClass:TokenInterceptorService ,multi: true}
   ],
   bootstrap: [AppComponent]
 })
