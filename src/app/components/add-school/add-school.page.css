@@ -1,7 +1,3 @@
-ion-header {
-  margin-bottom: 50px;
-}
-
 ion-header div.logo {
   display: inline-block;
   float: left;
@@ -28,10 +24,16 @@ ion-header ion-toolbar ion-title {
   text-align: center;
 }
 
+ion-content div.error p {
+  color: #ff000091;
+  text-align: center;
+}
+
 ion-content ion-label {
   color: grey;
   letter-spacing: 1px;
   margin-left: 25px;
+  margin-top: 12px;
 }
 
 ion-content ion-label:nth-child(1) {
