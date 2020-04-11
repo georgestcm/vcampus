@@ -46,24 +46,28 @@ ion-header div.home_nav ul li:hover {
   background-color: white;
 }
 
+ion-header div.home_nav ul li:focus {
+  border: 0;
+}
+
 ion-header div.home_nav ul li span {
   position: relative;
   top: 20px;
 }
 
-ion-header div.home_nav ul li:nth-child(4) {
+ion-header div.home_nav ul li:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-ion-header div.home_nav ul li:nth-child(4) img {
+ion-header div.home_nav ul li:nth-child(3) img {
   height: 20px;
   position: relative;
   bottom: 3px;
 }
 
-ion-header div.home_nav ul li:nth-child(4):hover {
+ion-header div.home_nav ul li:nth-child(3):hover {
   background-color: unset;
 }
 
@@ -138,37 +142,83 @@ ion-content .login_page .form_login ion-card ion-card-header ion-card-subtitle {
   text-align: center;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content ion-label {
+ion-content .login_page .form_login ion-card ion-card-header div.login_error {
+  width: 100%;
+  height: 30px;
+  border: 0.04em solid #ff0000a8;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+ion-content .login_page .form_login ion-card ion-card-header div.login_error div.error_icon {
+  display: inline-block;
+  float: left;
+  width: 10%;
+  background-color: #ff0000a8;
+  height: inherit;
+  border-radius: 5px 0 0 5px;
+}
+
+ion-content .login_page .form_login ion-card ion-card-header div.login_error div.error_icon ion-icon {
+  color: white;
+  font-size: 20px;
+  position: relative;
+  left: 10px;
+  top: 6px;
+}
+
+ion-content .login_page .form_login ion-card ion-card-header div.login_error div.error_msg {
+  display: inline-block;
+  float: right;
+  width: 90%;
+  height: inherit;
+  text-align: center;
+  border-radius: inherit;
+}
+
+ion-content .login_page .form_login ion-card ion-card-header div.login_error div.error_msg p {
+  position: relative;
+  bottom: 12px;
+  margin-top: 20px;
+  color: #ff0000a8;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin ion-label {
   letter-spacing: 1px;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content ion-input {
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin ion-input {
   width: 470px;
   height: 30px;
   border: 1px solid #8080803d;
   border-radius: 15px;
   margin-top: 3px;
+  transition: 1s;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content ion-input:nth-child(2) {
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin ion-input:nth-child(2) {
   margin-bottom: 10px;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content ion-input ion-icon {
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin ion-input ion-icon {
   margin-left: 6px;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content ion-button {
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin ion-button {
   margin-top: 10px;
   position: relative;
   left: 37%;
+  width: 80px;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content h6 {
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin h6 {
   text-align: center;
 }
 
-ion-content .login_page .form_login ion-card ion-card-content h6 #sign_up {
+ion-content .login_page .form_login ion-card ion-card-content div.notloggedin h6 #sign_up {
   color: white;
   background-color: #0468af;
   border-radius: 3px;
@@ -178,13 +228,72 @@ ion-content .login_page .form_login ion-card ion-card-content h6 #sign_up {
   cursor: pointer;
 }
 
-ion-content .login_page div.student_img {
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin {
+  width: 100%;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin p {
+  text-align: center;
+  color: grey;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin .user_info {
+  border-radius: 70px;
+  border: 1px solid #0556921f;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin .user_info .user_img {
+  display: inline-block;
+  float: left;
+  width: 42%;
+  height: inherit;
+  background-color: #0468af;
+  border-radius: inherit;
+  transition: 1s;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin .user_info .user_img:hover {
+  transition: 1s;
+  width: 55%;
+  background-color: #f9c828;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin .user_info .user_img img {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  position: relative;
+  top: 12px;
+  border-radius: 50%;
+  border: 1px solid #80808014;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin .user_info .user_name_role {
+  display: inline-block;
+  float: right;
+  width: 50%;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin div.continue_or_not_btn {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+ion-content .login_page .form_login ion-card ion-card-content div.loggedin div.continue_or_not_btn ion-button:nth-child(1) {
+  margin-right: 10%;
+}
+
+ion-content div.student_img {
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-ion-content .login_page div.student_img img {
+ion-content div.student_img img {
   height: 300px;
   width: auto;
 }
