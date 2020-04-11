@@ -26,7 +26,13 @@
    <ion-input type="password" type="password"[(ngModel)]="studentRegistration.password" required><ion-icon name="key"></ion-icon></ion-input>
    <ion-label>RE-ENTER PASSWORD</ion-label>
    <ion-input type="password" [(ngModel)]="this.password.reEnter" required><ion-icon name="key"></ion-icon></ion-input>
-   <ion-button (click)="register()" >REGISTER</ion-button>
+   <p><span>School selection</span></p>
+   <ion-select  (ionChange)="viewCourses($event)" placeholder="Select a school">
+      <ion-select-option value="uni1">University One</ion-select-option>
+      <ion-select-option value="uni2">University Two</ion-select-option>
+    </ion-select>
+    <p id="view_course" (click)="presentModal()" [hidden]="viewCoursesOrNot">View course list</p>
+   <ion-button (click)="presentLoading()" >REGISTER</ion-button>
   </ion-card-content>
   </ion-card>
   </div>
