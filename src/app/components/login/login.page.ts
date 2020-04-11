@@ -132,8 +132,8 @@ getRoleRequest(e){
      this.error_message.spinner = true;
      this.error_message.login_btn = false;
    } else {
-     this.login_user_data.username.strim()
-      this.login_user_data.password.strim()
+     this.login_user_data.username.trim()
+      this.login_user_data.password.trim()
        this._auth.loginUser(this.login_user_data)
        .subscribe(
          res =>(
