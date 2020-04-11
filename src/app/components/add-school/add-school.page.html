@@ -10,8 +10,8 @@
     <p>{{error}}</p>
   </div>
   <ion-label>USERNAME</ion-label>
-  <ion-input type="name"  required></ion-input>
-  <ion-button>
+  <ion-input type="name" [(ngModel)]="username" required></ion-input>
+  <ion-button (click)="AddSchool()">
     ADD SCHOOL
   </ion-button>
 </ion-content>
