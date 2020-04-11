@@ -6,7 +6,8 @@ import { Storage } from '@ionic/storage';
   providedIn: 'root'
 })
 export class AuthService {
-private loginTesting ="http://localhost:3000/api/login"
+private loginTesting ="https://vcampus.herokuapp.com/api/login"
+private registerStudentUrl ="http://localhost:3000/api/register"
   constructor(private http: HttpClient, private _router:Router,private storage: Storage) { }
 
 
@@ -18,17 +19,18 @@ private loginTesting ="http://localhost:3000/api/login"
    return this.http.post<any>(this.loginTesting,user)
   }
 
+  registerStudent(studentData){
+    return this.http.post<any>(this.registerStudentUrl,studentData)
+  }
+
   loggedIn(){
-    //return this.storage.get('token')
-    //console.log(!!this.storage.get('token'))
     return this.storage.get('token').then((token)=>{
       if(token){
         return true
       } else {
-        return false//change to false
+        return false
       }
     })
   }
-
 
 }
