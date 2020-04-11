@@ -15,6 +15,6 @@ import { LanguageSelectPage } from './language-select.page';
     IonicModule,
     LanguageSelectPageRoutingModule
   ],
-  declarations: [LanguageSelectPage]
+  declarations: []
 })
 export class LanguageSelectPageModule {}
