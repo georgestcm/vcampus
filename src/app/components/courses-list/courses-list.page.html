@@ -6,8 +6,8 @@
 </ion-header>
 
 <ion-content>
-  <div class="add_role" [routerLink]="['add-course']">
-    <div class="add">
+  <div class="add_role" [hidden]="addCourseOrnot" [routerLink]="['add-course']">
+    <div  class="add">
       <p>Add a new Course</p>
       <ion-icon name="add"></ion-icon>
     </div>
