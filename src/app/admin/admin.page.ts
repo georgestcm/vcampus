@@ -22,29 +22,6 @@ export class AdminPage implements OnInit {
   }
 
   userData;
-  toDashboard(){
-     this.router.navigate(['admin/dashboard'])
-   }
-
-   toPermissions(){
-      this.router.navigate(['admin/permissions'])
-    }
-
-    toSchoolList(){
-      this.router.navigate(['admin/school-list'])
-    }
-
-    toStudentList(){
-      this.router.navigate(['admin/student-list'])
-    }
-
-    toTeacherList(){
-      this.router.navigate(['admin/teacher-list'])
-    }
-
-    toCourseList(){
-      this.router.navigate(['admin/courses-list'])
-    }
 
     logoutUser(){
       this.storage.remove('token')
