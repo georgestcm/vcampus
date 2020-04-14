@@ -12,15 +12,13 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item lines="none" (click)=toDashboard()> <ion-icon name="stats"></ion-icon>Dashboard</ion-item>
-      <ion-item lines="none"> <ion-icon name="more"></ion-icon>Virtual campus center</ion-item>
       <ion-item lines="none"><div> <ion-icon name="chatboxes"></ion-icon>Messages </div></ion-item>
-      <ion-item lines="none" (click)="toSchoolList()"><ion-icon name="home"></ion-icon>Schools</ion-item>
-      <ion-item lines="none" (click)="toStudentList()"><ion-icon name="people" ></ion-icon>Students</ion-item>
-      <ion-item lines="none" (click)="toTeacherList()"><ion-icon name="person"></ion-icon>Teachers</ion-item>
-      <ion-item lines="none" (click)="toCourseList()"><ion-icon name="book"></ion-icon>courses</ion-item>
-      <ion-item lines="none"  (click)=toPermissions()><ion-icon name="key"></ion-icon>Permissions</ion-item>
-      <ion-item lines="none" (click)="logoutUser()"><ion-icon name="log-out"></ion-icon>Log out</ion-item>
+      <ion-item lines="none" [routerLink]="['/admin/school-list']"><ion-icon name="home"></ion-icon>Schools</ion-item>
+      <ion-item lines="none" [routerLink]="['/admin/student-list']"><ion-icon name="people" ></ion-icon>Students</ion-item>
+      <ion-item lines="none" [routerLink]="['/admin/teacher-list']"><ion-icon name="person"></ion-icon>Teachers</ion-item>
+      <ion-item lines="none" [routerLink]="['/admin/courses-list']"><ion-icon name="book"></ion-icon>courses</ion-item>
+      <ion-item lines="none"  [routerLink]="['/admin/permissions']"><ion-icon name="key"></ion-icon>Permissions</ion-item>
+      <ion-item lines="none" [routerLink]="['']"(click)="logoutUser()"><ion-icon name="log-out"></ion-icon>Log out</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
