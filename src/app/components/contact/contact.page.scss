@@ -21,6 +21,23 @@ ion-content {
         height: 120px;
       }
     }
+    .contact {
+      margin-top: 30px;
+      text-align: center;
+      color: grey;
+      a {
+        text-decoration: none;
+        padding: 5px;
+        background-color:#0567b0;
+        transition: 1s;
+        color: white;
+        border-radius: 5px;
+        &:hover {
+          transition: 1s;
+          background-color: #ffcc29;
+        }
+      }
+    }
   }
 
 

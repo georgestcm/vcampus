@@ -25,3 +25,23 @@ ion-content .main_wrapper .vcampus_img {
 ion-content .main_wrapper .vcampus_img img {
   height: 120px;
 }
+
+ion-content .main_wrapper .contact {
+  margin-top: 30px;
+  text-align: center;
+  color: grey;
+}
+
+ion-content .main_wrapper .contact a {
+  text-decoration: none;
+  padding: 5px;
+  background-color: #0567b0;
+  transition: 1s;
+  color: white;
+  border-radius: 5px;
+}
+
+ion-content .main_wrapper .contact a:hover {
+  transition: 1s;
+  background-color: #ffcc29;
+}
