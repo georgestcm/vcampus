@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import { AdminPage } from './admin/admin.page';
-import { AdminDashboardPage } from './adminComponents/admin-dashboard/admin-dashboard.page';
 import {AdminPermissionPage} from './adminComponents/admin-permission/admin-permission.page';
 import {SchoolListPage} from './components/school-list/school-list.page';
 import {StudentListPage} from './components/student-list/student-list.page';
@@ -36,12 +35,32 @@ const routes: Routes = [
   },
   {
     path:'admin',
-    redirectTo:'admin/dashboard',
+    redirectTo:'admin/school-list',
     pathMatch:'full'
   },
   {
     path:'editor',
-    redirectTo:'editor/dashboard',
+    redirectTo:'editor/school-list',
+    pathMatch:'full'
+  },
+  {
+    path:'rschool',
+    redirectTo:'rschool/courses-list',
+    pathMatch:'full'
+  },
+  {
+    path:'rschoolstaff',
+    redirectTo:'rschoolstaff/courses-list',
+    pathMatch:'full'
+  },
+  {
+    path:'rteacher',
+    redirectTo:'rteacher/courses-list',
+    pathMatch:'full'
+  },
+  {
+    path:'rstudents',
+    redirectTo:'rstudents/courses-list',
     pathMatch:'full'
   },
   {
@@ -49,7 +68,6 @@ const routes: Routes = [
     component: AdminPage,
     canActivate: [AdminGuard],
     children: [
-      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
       {
         path: 'school-list',
       component: SchoolListPage,
@@ -82,7 +100,6 @@ const routes: Routes = [
     component:REditorPage,
     canActivate: [EditorGuard],
     children: [
-      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
       {
         path: 'school-list',
       component: SchoolListPage,
@@ -115,12 +132,6 @@ const routes: Routes = [
     component:RSchoolPage,
     canActivate: [SchoolGuard],
     children: [
-      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
-      {
-        path: 'school-list',
-      component: SchoolListPage,
-      pathMatch:"full"
-      },
       {
         path: 'student-list',
         component: StudentListPage,
@@ -148,12 +159,6 @@ const routes: Routes = [
     component:RSchoolStaffPage,
     canActivate: [SchoolStaffGuard],
     children: [
-      { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
-      {
-        path: 'school-list',
-      component: SchoolListPage,
-      pathMatch:"full"
-      },
       {
         path: 'student-list',
         component: StudentListPage,
@@ -181,22 +186,6 @@ const routes: Routes = [
   component: RTeacherPage,
   canActivate: [TeacherGuard],
   children: [
-    { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
-    {
-      path: 'school-list',
-    component: SchoolListPage,
-    pathMatch:"full"
-    },
-    {
-      path: 'student-list',
-      component: StudentListPage,
-      pathMatch:"full"
-    },
-    {
-      path: 'teacher-list',
-      component: TeacherListPage,
-      pathMatch:"full"
-    },
     {
       path:"courses-list/add-course",
       component:AddCoursePage
@@ -218,30 +207,9 @@ const routes: Routes = [
   component:RStudentsPage,
   canActivate: [StudentGuard],
   children: [
-    { path: 'dashboard', component: AdminDashboardPage,pathMatch:"full" },
-    {
-      path: 'school-list',
-    component: SchoolListPage,
-    pathMatch:"full"
-    },
-    {
-      path: 'student-list',
-      component: StudentListPage,
-      pathMatch:"full"
-    },
-    {
-      path: 'teacher-list',
-      component: TeacherListPage,
-      pathMatch:"full"
-    },
     {
       path: 'courses-list',
       component: CoursesListPage,
-      pathMatch:"full"
-    },
-    {
-      path: 'permissions',
-      component: AdminPermissionPage,
       pathMatch:"full"
     }
   ]
