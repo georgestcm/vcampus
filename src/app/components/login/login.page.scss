@@ -74,7 +74,7 @@
     width: inherit;
     display: flex;
     justify-content: center;
-    background-color: #19192321;
+    background-color: #1919230f;
     .intro {
       display: block;
       box-sizing: border-box;
@@ -84,7 +84,7 @@
       text-align: center;
       top: 50px;
       p {
-        //color: grey;
+        color: grey;
         font-size: 20px;
         letter-spacing: 2px;
       }
@@ -275,5 +275,41 @@
       height: 300px;
       width: auto;
     }
+  }
+
+  div.two_color{
+    height: 100%;
+    position: fixed;
+    width: 10%;
+    left: 80%;
+    div.yellow {
+      height: inherit;
+      width: 50%;
+      background-color: #ffcc29;
+      display: inline-block;
+      float: left;
+    }
+    div.blue {
+      display: inline-block;
+      height: inherit;
+      width: 50%;
+      background-color: #0566af;
+      float: right;
+    }
+  }
+
+  ion-fab {
+    ion-fab-button {
+      ion-icon {
+        color:#ffcc29;
+      }
+    }
+  }
+  div.school_img {
+    position: fixed;
+    img {
+      height: 60px;
+      margin: 15px 0 0 15px;
+  }
   }
 }

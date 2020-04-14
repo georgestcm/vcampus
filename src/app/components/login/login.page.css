@@ -82,7 +82,7 @@ ion-content .login_page {
   width: inherit;
   display: flex;
   justify-content: center;
-  background-color: #19192321;
+  background-color: #1919230f;
 }
 
 ion-content .login_page .intro {
@@ -96,6 +96,7 @@ ion-content .login_page .intro {
 }
 
 ion-content .login_page .intro p {
+  color: grey;
   font-size: 20px;
   letter-spacing: 2px;
 }
@@ -296,4 +297,40 @@ ion-content div.student_img {
 ion-content div.student_img img {
   height: 300px;
   width: auto;
+}
+
+ion-content div.two_color {
+  height: 100%;
+  position: fixed;
+  width: 10%;
+  left: 80%;
+}
+
+ion-content div.two_color div.yellow {
+  height: inherit;
+  width: 50%;
+  background-color: #ffcc29;
+  display: inline-block;
+  float: left;
+}
+
+ion-content div.two_color div.blue {
+  display: inline-block;
+  height: inherit;
+  width: 50%;
+  background-color: #0566af;
+  float: right;
+}
+
+ion-content ion-fab ion-fab-button ion-icon {
+  color: #ffcc29;
+}
+
+ion-content div.school_img {
+  position: fixed;
+}
+
+ion-content div.school_img img {
+  height: 60px;
+  margin: 15px 0 0 15px;
 }
