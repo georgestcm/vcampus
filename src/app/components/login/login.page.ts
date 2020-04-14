@@ -143,7 +143,7 @@ getRoleRequest(e){
          this.storage.set('user',res.user),
          this.storage.set('token',res.token),
          this.storage.set('role',res.role),
-          this.router.navigate([`${this.routeDirect}/dashboard`]),
+          this.router.navigate([`${this.routeDirect}/courses-list`]),
            this.login_user_data.username = '',
            this.login_user_data.password = ''
          ),
@@ -167,7 +167,7 @@ getRoleRequest(e){
  }
 
  continueToAccount(){
-   this.router.navigate([`${this.currentUserRoute}/dashboard`])
+   this.router.navigate([`${this.currentUserRoute}/courses-list`])
  }
 
  toAbout(){
