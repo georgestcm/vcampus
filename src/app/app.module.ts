@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { LanguageSelectPage} from './components/language-select/language-select.page';
 import { IonicStorageModule } from '@ionic/storage';
 import { AdminPage } from './admin/admin.page';
-import { AdminDashboardPage } from './adminComponents/admin-dashboard/admin-dashboard.page';
 import {AdminPermissionPage} from './adminComponents/admin-permission/admin-permission.page';
 import {SchoolListPage} from './components/school-list/school-list.page';
 import {StudentListPage} from './components/student-list/student-list.page';
@@ -57,7 +56,6 @@ export function createTranslateLoader(http: HttpClient) {
     RegisterPage,
     LanguageSelectPage,
     AdminPage,
-    AdminDashboardPage,
     AdminPermissionPage,
     TeacherListPage,
     StudentListPage,
