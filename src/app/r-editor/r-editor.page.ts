@@ -9,34 +9,18 @@ import { Storage } from '@ionic/storage';
 export class REditorPage implements OnInit {
 
   constructor(private router: Router,private storage: Storage) { }
-
-  ngOnInit() {
+  userName = {
+    first_name:'',
+    last_name:''
   }
+  ngOnInit() {
+    this.storage.get('user').then((val) => {
+    this.userName.first_name = val.first_name;
+    this.userName.last_name = val.last_name;
+  })
+}
 
   userData;
-  toDashboard(){
-     this.router.navigate(['editor/dashboard'])
-   }
-
-   toPermissions(){
-      this.router.navigate(['editor/permissions'])
-    }
-
-    toSchoolList(){
-      this.router.navigate(['editor/school-list'])
-    }
-
-    toStudentList(){
-      this.router.navigate(['editor/student-list'])
-    }
-
-    toTeacherList(){
-      this.router.navigate(['editor/teacher-list'])
-    }
-
-    toCourseList(){
-      this.router.navigate(['editor/courses-list'])
-    }
 
     logoutUser(){
       this.storage.remove('token')
