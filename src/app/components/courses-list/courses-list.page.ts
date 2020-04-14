@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.page.html',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesListPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private storage: Storage) { }
+  addCourseOrnot;
   ngOnInit() {
+    this.storage.get('role').then((val) => {
+    if(val===1){
+      this.addCourseOrnot = true;
+    } else {
+      this.addCourseOrnot = true;
+    }
+  });
   }
 
 }
