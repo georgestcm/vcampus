@@ -11,8 +11,8 @@ export class CoursesListPage implements OnInit {
   addCourseOrnot;
   ngOnInit() {
     this.storage.get('role').then((val) => {
-    if(val===1){
-      this.addCourseOrnot = true;
+    if(val===5){
+      this.addCourseOrnot = false;
     } else {
       this.addCourseOrnot = true;
     }
