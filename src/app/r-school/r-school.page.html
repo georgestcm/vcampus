@@ -5,21 +5,19 @@
           <img src="/assets/person.png" alt="account icon">
       </div>
       <div class="account_info">
-         <h6></h6>
+         <h6>{{userName.first_name}} {{userName.last_name}}</h6>
          <p><ion-icon name="person"></ion-icon>School</p>
       </div>
     </div>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item lines="none" (click)=toDashboard()> <ion-icon name="stats"></ion-icon>Dashboard</ion-item>
       <ion-item lines="none"><div> <ion-icon name="chatboxes"></ion-icon>Messages </div></ion-item>
-      <ion-item lines="none" (click)="toSchoolList()"><ion-icon name="home"></ion-icon>Schools</ion-item>
-      <ion-item lines="none" (click)="toStudentList()"><ion-icon name="people" ></ion-icon>Students</ion-item>
-      <ion-item lines="none" (click)="toTeacherList()"><ion-icon name="person"></ion-icon>Teachers</ion-item>
-      <ion-item lines="none" (click)="toCourseList()"><ion-icon name="book"></ion-icon>courses</ion-item>
-      <ion-item lines="none"  (click)=toPermissions()><ion-icon name="key"></ion-icon>Permissions</ion-item>
-      <ion-item lines="none" (click)="logoutUser()"><ion-icon name="log-out"></ion-icon>Log out</ion-item>
+      <ion-item lines="none" [routerLink]="['/rschool/student-list']"><ion-icon name="people" ></ion-icon>Students</ion-item>
+      <ion-item lines="none" [routerLink]="['/rschool/teacher-list']"><ion-icon name="person"></ion-icon>Teachers</ion-item>
+      <ion-item lines="none" [routerLink]="['/rschool/courses-list']"><ion-icon name="book"></ion-icon>courses</ion-item>
+      <ion-item lines="none"  [routerLink]="['/rschool/permissions']"><ion-icon name="key"></ion-icon>Permissions</ion-item>
+      <ion-item lines="none" [routerLink]="['']" (click)="logoutUser()"><ion-icon name="log-out"></ion-icon>Log out</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
