@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {AuthService } from 'src/app/auth.service';
 @Component({
   selector: 'app-school-register',
   templateUrl: './school-register.page.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolRegisterPage implements OnInit {
 
-  constructor() { }
+  constructor(public _auth: AuthService) { }
   current_page_on_off = true;
   login_user = {
     username:'',
@@ -16,6 +16,7 @@ export class SchoolRegisterPage implements OnInit {
   }
   error;
   save_school_data = {
+    school_id:'',
     school_name:'',
     principal_first_name:'',
     principal_last_name:'',
@@ -29,6 +30,19 @@ export class SchoolRegisterPage implements OnInit {
 
  login(){
    console.log(this.login_user)
+   this._auth.getRegisterSchool(this.login_user)
+   .subscribe (
+     res=>(
+       this.current_page_on_off = res.status,
+       this.error='',
+       this.save_school_data.school_id = res._id,
+       this.login_user.username='',
+       this.login_user.password=''
+     ),
+     err=>(
+       this.error = err.error
+     )
+   )
  }
 
  saveNewUser(){
@@ -60,7 +74,23 @@ export class SchoolRegisterPage implements OnInit {
                } else {
                  this.error = ''
                  this.save_school_data.description.trim()
-                 console.log(this.save_school_data)
+                console.log(this.save_school_data)
+                this._auth.saveSchoolData(this.save_school_data)
+                .subscribe(
+                  res=>(
+                    this.save_school_data.school_name=" ",
+                    this.save_school_data.principal_first_name=" ",
+                    this.save_school_data.principal_last_name=" ",
+                    this.save_school_data.password=" ",
+                    this.save_school_data.description=" ",
+                    this.re_password=" ",
+                    this.error='You can now login as a school',
+                    this.current_page_on_off = true
+                  ),
+                  err=>(
+                    console.log(err)
+                  )
+                )
                }
              }
            }
