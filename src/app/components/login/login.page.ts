@@ -137,9 +137,7 @@ getRoleRequest(e){
        this._auth.loginUser(this.login_user_data)
        .subscribe(
          res =>(
-           console.log(res),
           this.user = res.user,
-         console.log(res.user),
          this.storage.set('user',res.user),
          this.storage.set('token',res.token),
          this.storage.set('role',res.role),
@@ -148,7 +146,6 @@ getRoleRequest(e){
            this.login_user_data.password = ''
          ),
          err =>(
-         console.log(err),
          this.error_message.error = err.error,
          this.error_message.error_red_msg = false,
          this.error_message.btn_text = false,
