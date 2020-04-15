@@ -9,35 +9,19 @@ import { Storage } from '@ionic/storage';
 export class RSchoolPage implements OnInit {
 
   constructor(private router: Router,private storage: Storage) { }
+  userName = {
+    first_name:'',
+    last_name:''
+  }
 
   ngOnInit() {
+    this.storage.get('user').then((val) => {
+    this.userName.first_name = val.school.principal_first_name;
+    this.userName.last_name = val.school.principal_last_name;
+  })
   }
 
   userData;
-  toDashboard(){
-     this.router.navigate(['rschool/dashboard'])
-   }
-
-   toPermissions(){
-      this.router.navigate(['rschool/permissions'])
-    }
-
-    toSchoolList(){
-      this.router.navigate(['rschool/school-list'])
-    }
-
-    toStudentList(){
-      this.router.navigate(['rschool/student-list'])
-    }
-
-    toTeacherList(){
-      this.router.navigate(['rschool/teacher-list'])
-    }
-
-    toCourseList(){
-      this.router.navigate(['rschool/courses-list'])
-    }
-
     logoutUser(){
       this.storage.remove('token')
       this.storage.remove('user')
