@@ -109,6 +109,7 @@ ion-content div.wrapper div.add_details_login div.form ion-button {
 ion-content div.wrapper div.add_details_login div.form div.error p {
   text-align: center;
   color: #ff0000bd;
+  font-size: 12px;
 }
 
 ion-content div.wrapper div.add_details_login div.add_details {
@@ -118,6 +119,7 @@ ion-content div.wrapper div.add_details_login div.add_details {
 ion-content div.wrapper div.add_details_login div.add_details div.error p {
   text-align: center;
   color: #ff0000bd;
+  font-size: 12px;
 }
 
 ion-content div.wrapper div.add_details_login div.add_details ion-label {
