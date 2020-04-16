@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { AddCurriculumPageRoutingModule } from './add-curriculum-routing.module';
+
+import { AddCurriculumPage } from './add-curriculum.page';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    AddCurriculumPageRoutingModule
+  ],
+  declarations: [AddCurriculumPage]
+})
+export class AddCurriculumPageModule {}

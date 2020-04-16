@@ -1,0 +1,18 @@
+<ion-header>
+  <div class="logo">
+    <img src="assets/vcampus.png" alt="app logo">
+    <p>Add a curriculum</p>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="error">
+    <p>{{error}}</p>
+  </div>
+  <div class="curriculum_list">
+    <h3>Curriculum list</h3>
+    <ion-item lines="full"></ion-item>
+  </div>
+  <ion-input type="name" [(ngModel)]="username" required></ion-input>
+  <ion-button>ADD CURRICULUM</ion-button>
+</ion-content>
