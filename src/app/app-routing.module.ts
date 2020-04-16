@@ -245,6 +245,18 @@ const routes: Routes = [
     path: 'school-register',
     loadChildren: () => import('./components/school-register/school-register.module').then( m => m.SchoolRegisterPageModule)
   },
+  {
+    path: 'add-curriculum',
+    loadChildren: () => import('./components/add-curriculum/add-curriculum.module').then( m => m.AddCurriculumPageModule)
+  },
+  {
+    path: 'add-teacher',
+    loadChildren: () => import('./components/add-teacher/add-teacher.module').then( m => m.AddTeacherPageModule)
+  },
+  {
+    path: 'add-school-staff',
+    loadChildren: () => import('./components/add-school-staff/add-school-staff.module').then( m => m.AddSchoolStaffPageModule)
+  },
 ];
 
 @NgModule({
