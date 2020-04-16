@@ -18,6 +18,7 @@ import {SchoolListPage} from './components/school-list/school-list.page';
 import {StudentListPage} from './components/student-list/student-list.page';
 import {TeacherListPage} from './components/teacher-list/teacher-list.page';
 import {CoursesListPage} from './components/courses-list/courses-list.page';
+import {AddCurriculumPage} from './components/add-curriculum/add-curriculum.page';
 import { TokenInterceptorService} from './token-interceptor.service'
 import { AuthService } from './auth.service';
 import { AdminGuard} from './admin.guard';
@@ -40,6 +41,8 @@ import {RTeacherPage} from './r-teacher/r-teacher.page';
 import {RStudentsPage} from './r-students/r-students.page';
 import {AddStaffPage} from './components/add-staff/add-staff.page'
 import {SchoolRegisterPage} from './components/school-register/school-register.page';
+import {AddSchoolStaffPage} from './components/add-school-staff/add-school-staff.page'
+import {AddTeacherPage} from './components/add-teacher/add-teacher.page'
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -68,7 +71,10 @@ export function createTranslateLoader(http: HttpClient) {
     RSchoolPage,
     AddCoursePage,
     AddStaffPage,
-    SchoolRegisterPage
+    SchoolRegisterPage,
+    AddCurriculumPage,
+    AddTeacherPage,
+    AddSchoolStaffPage
   ],
   entryComponents: [
     LanguageSelectPage,
@@ -76,7 +82,10 @@ export function createTranslateLoader(http: HttpClient) {
     StudentPageCourseListPage,
     AddSchoolPage,
     AddStaffPage,
-    SchoolRegisterPage
+    SchoolRegisterPage,
+    AddCurriculumPage,
+    AddTeacherPage,
+    AddSchoolStaffPage
   ],
   imports: [BrowserModule,FormsModule,HttpClientModule,IonicStorageModule.forRoot({
       name: '__mydb',
