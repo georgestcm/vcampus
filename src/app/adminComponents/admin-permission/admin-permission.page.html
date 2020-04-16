@@ -4,21 +4,38 @@
     <ion-title>Permissions</ion-title>
     </ion-buttons>
 </ion-header>
-
 <ion-content>
-  <div class="add_role">
+  <div class="add_role" [hidden]="adminOrNot">
     <div class="add">
-      <p>Add new staff</p>
-      <ion-icon (click)="addStaff()" name="add"></ion-icon>
+      <p>Add admin staff</p>
+      <ion-icon (click)="addStaffAdmin()" name="add"></ion-icon>
     </div>
   </div>
-  <div class="add_role">
+  <div class="add_role" [hidden]="adminOrNot">
     <div class="add">
       <p>Add a school</p>
-      <ion-icon (click)="addSchool()" name="add"></ion-icon>
+      <ion-icon (click)="addSchoolAdmin()" name="add"></ion-icon>
+    </div>
+  </div>
+  <div class="add_role" (click)="AddStaffSchool()" [hidden]="!adminOrNot">
+    <div class="add">
+      <p>Add a staff</p>
+      <ion-icon name="add"></ion-icon>
+    </div>
+  </div>
+  <div class="add_role" (click)="addTeacher()" [hidden]="!adminOrNot">
+    <div class="add">
+      <p>Add a teacher</p>
+      <ion-icon name="add"></ion-icon>
+    </div>
+  </div>
+  <div class="add_role" (click)="addCurriculum()" [hidden]="!adminOrNot">
+    <div class="add">
+      <p>Curriculum</p>
+      <ion-icon name="add"></ion-icon>
     </div>
   </div>
   <div class="placeholder">
-    <p>You currently have 0 schools registered</p>
+    <p></p>
   </div>
 </ion-content>
