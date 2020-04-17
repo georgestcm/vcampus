@@ -9,10 +9,13 @@
   <div class="error">
     <p>{{error}}</p>
   </div>
-  <div class="curriculum_list">
+  <ng-template #elseTemplate>
+    <p>This school has no curriculum</p>
+ </ng-template>
+  <ng-container class="curriculum_list" *ngIf="curList.length !==0; else elseTemplate">
     <h3>Curriculum list</h3>
-    <ion-item lines="full"></ion-item>
-  </div>
-  <ion-input type="name" [(ngModel)]="username" required></ion-input>
-  <ion-button>ADD CURRICULUM</ion-button>
+    <ion-item *ngFor="let curriculum of curList" lines="full"> {{curriculum}} </ion-item>
+  </ng-container>
+  <ion-input type="name" [(ngModel)]="addCur.curriculum" required></ion-input>
+  <ion-button (click)="addCurr()">ADD CURRICULUM</ion-button>
 </ion-content>
