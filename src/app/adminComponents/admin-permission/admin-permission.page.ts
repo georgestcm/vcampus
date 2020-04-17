@@ -20,7 +20,6 @@ export class AdminPermissionPage implements OnInit {
     this.storage.get('role').then((val) => {
       if(val===3 || val ===4){
         this.adminOrNot = true;
-        console.log(val+'Its live')
       } else {
       this.adminOrNot = false;
       console.log('not seen')
