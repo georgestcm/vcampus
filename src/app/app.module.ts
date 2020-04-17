@@ -21,6 +21,7 @@ import {CoursesListPage} from './components/courses-list/courses-list.page';
 import {AddCurriculumPage} from './components/add-curriculum/add-curriculum.page';
 import { TokenInterceptorService} from './token-interceptor.service'
 import { AuthService } from './auth.service';
+import { CourseService } from './course.service';
 import { AdminGuard} from './admin.guard';
 import { EditorGuard} from './editor.guard';
 import { SchoolGuard} from './school.guard';
@@ -103,6 +104,7 @@ driverOrder: ['localstorage','sqlite', 'websql']
     StatusBar,
     SplashScreen,
     AuthService,
+    CourseService ,
     AdminGuard,
     EditorGuard,
     SchoolGuard,
