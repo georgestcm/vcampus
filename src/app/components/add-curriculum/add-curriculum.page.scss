@@ -9,7 +9,6 @@ ion-header {
       margin: 17px 0 0 25px;
       display: inline-block;
     }
-
     p {
       display: inline-block;
       color: white;
@@ -25,7 +24,6 @@ ion-header {
     }
   }
 }
-
 ion-content {
   div.error {
     p {
@@ -33,6 +31,10 @@ ion-content {
       text-align: center;
     }
   }
+    p {
+      color: grey;
+      text-align: center;
+    }
   ion-label {
     color: grey;
     letter-spacing: 1px;
@@ -42,7 +44,6 @@ ion-content {
       margin-top: 15px;
     }
   }
-
   ion-input {
     width: 560px;
     height: 30px;
@@ -51,7 +52,6 @@ ion-content {
     margin:0 auto 10px auto;
     margin-top: 19px;
   }
-
   ion-item {
     color: grey;
   }
