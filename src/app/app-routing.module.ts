@@ -257,6 +257,10 @@ const routes: Routes = [
     path: 'add-school-staff',
     loadChildren: () => import('./components/add-school-staff/add-school-staff.module').then( m => m.AddSchoolStaffPageModule)
   },
+  {
+    path: 'view-course',
+    loadChildren: () => import('./components/view-course/view-course.module').then( m => m.ViewCoursePageModule)
+  },
 ];
 
 @NgModule({
