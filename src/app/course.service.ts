@@ -4,8 +4,9 @@ import { HttpClient } from "@angular/common/http"
   providedIn: 'root'
 })
 export class CourseService {
- private getCurList ="http://localhost:3000/api/get_curriculum_list"
- private postCurList ="http://localhost:3000/api/post_curriculum_list"
+ private getCurList ="https://vcampus.herokuapp.com/api/get_curriculum_list"
+ private postCurList ="https://vcampus.herokuapp.com/api/post_curriculum_list"
+ private postNewTeacher ="https://vcampus.herokuapp.com/api/create_new_teacher"
   constructor(private http: HttpClient) { }
 
 
@@ -19,5 +20,13 @@ export class CourseService {
 
   postCur(data){
     return this.http.post<any>(this.postCurList,data)
+  }
+
+  createNewTeacher(data,id){
+    return this.http.post<any>(this.postNewTeacher,data,{
+      params:{
+        school_id:id
+      }
+    })
   }
 }
