@@ -45,7 +45,7 @@ export class AddCurriculumPage implements OnInit {
      this._course.postCur(this.addCur)
         .subscribe(
           res=>(
-            this.getCurriculumList(this.myCurrentSchoolId),
+            this.getCurr(this.myCurrentSchoolId),
             console.log(res)
           ),
           err=>(
