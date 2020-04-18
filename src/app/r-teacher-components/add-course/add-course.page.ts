@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AddCoursePage implements OnInit {
 
   constructor() { }
-
+  sectionNumber = 1;
+  chapterNumber =1;
+  topicNumber= 1;
   ngOnInit() {
   }
 
