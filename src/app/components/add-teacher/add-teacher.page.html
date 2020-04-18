@@ -10,6 +10,14 @@
     <p>{{error}}</p>
   </div>
   <ion-label>USERNAME</ion-label>
-  <ion-input type="name" [(ngModel)]="username" required></ion-input>
-  <ion-button>ADD TEACHER</ion-button>
+  <ion-input type="name" [(ngModel)]="teacher_data.username" required></ion-input>
+  <ion-label>FIRST NAME</ion-label>
+  <ion-input type="name" [(ngModel)]="teacher_data.first_name" required></ion-input>
+  <ion-label>LAST NAME</ion-label>
+  <ion-input type="name" [(ngModel)]="teacher_data.last_name" required></ion-input>
+  <ion-label>PASSWORD</ion-label>
+  <ion-input type="password" [(ngModel)]="teacher_data.password" required></ion-input>
+  <ion-label>RE-ENTER PASSWORD</ion-label>
+  <ion-input type="password" [(ngModel)]="re_password" required></ion-input>
+  <ion-button (click)="addTeacher()">ADD TEACHER</ion-button>
 </ion-content>
