@@ -43,7 +43,8 @@ import {RStudentsPage} from './r-students/r-students.page';
 import {AddStaffPage} from './components/add-staff/add-staff.page'
 import {SchoolRegisterPage} from './components/school-register/school-register.page';
 import {AddSchoolStaffPage} from './components/add-school-staff/add-school-staff.page'
-import {AddTeacherPage} from './components/add-teacher/add-teacher.page'
+import {AddTeacherPage} from './components/add-teacher/add-teacher.page';
+import {ViewCoursePage} from './components/view-course/view-course.page'
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -75,7 +76,8 @@ export function createTranslateLoader(http: HttpClient) {
     SchoolRegisterPage,
     AddCurriculumPage,
     AddTeacherPage,
-    AddSchoolStaffPage
+    AddSchoolStaffPage,
+    ViewCoursePage
   ],
   entryComponents: [
     LanguageSelectPage,
