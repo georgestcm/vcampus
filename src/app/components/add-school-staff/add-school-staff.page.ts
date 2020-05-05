@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddSchoolStaffPage implements OnInit {
 
   constructor() { }
-
+ error;
+ username;
   ngOnInit() {
   }
 
