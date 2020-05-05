@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { RTeacherPageRoutingModule } from './r-teacher-routing.module';
 
-import { RTeacherPage } from './r-teacher.page';
+
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { RTeacherPage } from './r-teacher.page';
     IonicModule,
     RTeacherPageRoutingModule
   ],
-  declarations: [RTeacherPage]
+  declarations: []
 })
 export class RTeacherPageModule {}

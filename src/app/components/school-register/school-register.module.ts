@@ -6,8 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { SchoolRegisterPageRoutingModule } from './school-register-routing.module';
 
-import { SchoolRegisterPage } from './school-register.page';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +13,6 @@ import { SchoolRegisterPage } from './school-register.page';
     IonicModule,
     SchoolRegisterPageRoutingModule
   ],
-  declarations: [SchoolRegisterPage]
+  declarations: []
 })
 export class SchoolRegisterPageModule {}

@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TeacherListPageRoutingModule } from './teacher-list-routing.module';
 
-import { TeacherListPage } from './teacher-list.page';
+
 
 @NgModule({
   imports: [

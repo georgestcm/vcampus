@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { REditorPageRoutingModule } from './r-editor-routing.module';
 
-import { REditorPage } from './r-editor.page';
 
 @NgModule({
   imports: [
@@ -15,6 +14,6 @@ import { REditorPage } from './r-editor.page';
     IonicModule,
     REditorPageRoutingModule
   ],
-  declarations: [REditorPage]
+  declarations: []
 })
 export class REditorPageModule {}
