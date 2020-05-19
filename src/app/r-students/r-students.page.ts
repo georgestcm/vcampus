@@ -8,44 +8,49 @@ import { Storage } from '@ionic/storage';
 })
 export class RStudentsPage implements OnInit {
 
-  constructor(private router: Router,private storage: Storage) { }
- currentStudent
+
+  public userData: any;
+  public currentStudent: any;
+
+  constructor(private router: Router, private storage: Storage) { }
+
   ngOnInit() {
-    this.storage.get('user').then((val)=>{
-      this.currentStudent = val;
-    })
+    this.storage.get('user').then((val) => {
+      if (val != undefined) {
+        this.currentStudent = val;
+      }
+    });
   }
 
-  userData;
-  toDashboard(){
-     this.router.navigate(['rstudents/dashboard'])
-   }
+  toDashboard() {
+    this.router.navigate(['rstudents/dashboard'])
+  }
 
-   toPermissions(){
-      this.router.navigate(['rstudents/permissions'])
-    }
+  toPermissions() {
+    this.router.navigate(['rstudents/permissions'])
+  }
 
-    toSchoolList(){
-      this.router.navigate(['rstudents/school-list'])
-    }
+  toSchoolList() {
+    this.router.navigate(['rstudents/school-list'])
+  }
 
-    toStudentList(){
-      this.router.navigate(['rstudents/student-list'])
-    }
+  toStudentList() {
+    this.router.navigate(['rstudents/student-list'])
+  }
 
-    toTeacherList(){
-      this.router.navigate(['rstudents/teacher-list'])
-    }
+  toTeacherList() {
+    this.router.navigate(['rstudents/teacher-list'])
+  }
 
-    toCourseList(){
-      this.router.navigate(['rstudents/courses-list'])
-    }
+  toCourseList() {
+    this.router.navigate(['rstudents/courses-list'])
+  }
 
-    logoutUser(){
-      this.storage.remove('token')
-      this.storage.remove('user')
-      this.storage.remove('role')
-     this.router.navigate(['/login'])
+  logoutUser() {
+    this.storage.remove('token')
+    this.storage.remove('user')
+    this.storage.remove('role')
+    this.router.navigate(['/login'])
 
-    }
+  }
 }

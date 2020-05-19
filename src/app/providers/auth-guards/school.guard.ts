@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree,CanActivate,Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService} from './auth.service'
 import { Storage } from '@ionic/storage';
+import { AuthService } from '../auth.service';
+
+
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements  CanActivate {
+export class SchoolGuard implements  CanActivate {
 
   constructor(private _authService: AuthService, private _router:Router,private storage: Storage){
 
@@ -16,7 +18,7 @@ export class AdminGuard implements  CanActivate {
       if(await this._authService.loggedIn()){
         //return true
         return this.storage.get('role').then((role)=>{
-          if(role===1){
+          if(role===3){
             return true
           } else {
             return false
