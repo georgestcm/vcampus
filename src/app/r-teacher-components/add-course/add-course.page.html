@@ -10,365 +10,54 @@
         <select name="section">
           <option>{{sectionNumber}}</option>
         </select>
-        <div class="chapter_one">
-          <h5>Chapter 1</h5>
-          <ion-label>Topic 1</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
 
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
+        <div
+          *ngFor="let chapter of chapterList; let chapterNo = index"
+          class="{{'chapter_' + (chapterNo + 1)}} chapters"
+        >
+          <ion-label>Chapter {{chapterNo + 1}}</ion-label>
+          <ion-input [(ngModel)]="chapter.chapterName"></ion-input>
+
+          <div
+            *ngFor="let topic of chapter['topics']; let topicNo = index"
+            class="{{'topic_' + (topicNo + 1)}} topics"
+          >
+            <ion-label>Topic {{topicNo + 1}}</ion-label>
+            <ion-input [(ngModel)]="topic.topicName"></ion-input>
+            <div
+              *ngFor="let paragraph of topic['paragraphs']; let paragraphNo = index"
+              class="{{'paragraph_' + (paragraphNo + 1)}} paragraph"
+            >
+              <ion-label>Paragraph {{paragraphNo + 1}}</ion-label>
+              <ion-textarea rows="10" [(ngModel)]="paragraph.paragraph"> </ion-textarea>
+              <div class="supporting_docs">
+                <div class="file"></div>
+                <div class="select_file">
+                  <ion-icon name="cloud-upload"></ion-icon> Select a file
+                </div>
+              </div>
             </div>
+            <ion-button class="ml-5" (click)="addParagraph((chapterNo + 1), (topicNo + 1))"
+              >Add New Paragraph</ion-button
+            >
           </div>
+          <div>
+            <ion-button class="ml-10" (click)="addTopic(chapterNo + 1)"
+              >Add New Topic</ion-button
+            >
+          </div>
+          <ion-item-divider></ion-item-divider>
         </div>
-        <div class="chapter_two">
-          <ion-label>Topic 2</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_three">
-          <ion-label>Topic 3</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_four">
-          <ion-label>Topic 4</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_five">
-          <ion-label>Topic 5</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_one">
-          <h5>Chapter 2</h5>
-          <ion-label>Topic 1</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_two">
-          <ion-label>Topic 2</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_three">
-          <ion-label>Topic 3</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_four">
-          <ion-label>Topic 4</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_five">
-          <ion-label>Topic 5</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_one">
-          <h5>Chapter 3</h5>
-          <ion-label>Topic 1</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_two">
-          <ion-label>Topic 2</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_three">
-          <ion-label>Topic 3</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_four">
-          <ion-label>Topic 4</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_five">
-          <ion-label>Topic 5</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_one">
-          <h5>Chapter 5</h5>
-          <ion-label>Topic 1</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_two">
-          <ion-label>Topic 2</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_three">
-          <ion-label>Topic 3</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_four">
-          <ion-label>Topic 4</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_five">
-          <ion-label>Topic 5</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_one">
-          <h5>Chapter 5</h5>
-          <ion-label>Topic 1</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_two">
-          <ion-label>Topic 2</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_three">
-          <ion-label>Topic 3</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_four">
-          <ion-label>Topic 4</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
-        </div>
-        <div class="chapter_five">
-          <ion-label>Topic 5</ion-label>
-          <ion-input></ion-input>
-          <ion-label>Paragraph</ion-label>
-          <ion-textarea rows="10">
-
-          </ion-textarea>
-          <div class="supporting_docs">
-            <div class="file"></div>
-            <div class="select_file">
-              <ion-icon name="cloud-upload"></ion-icon> Select a file
-            </div>
-          </div>
+        <div>
+          <ion-button (click)="addChapter(lastChapter)"
+            >Add Another Chapter</ion-button
+          >
         </div>
       </div>
     </div>
+
     <div class="add_section_btn">
-      <ion-button>
+      <ion-button (click)="addSection()"> 
         ADD SECTION
       </ion-button>
     </div>
@@ -434,10 +123,20 @@
           <ion-label>Course availability</ion-label>
           <div class="course_availability">
             <p>from</p>
-            <ion-datetime displayFormat="MM/DD/YYYY" min="2020-03-14" max="2040-12-09" value="2020-01-01T15:03:46.789">
+            <ion-datetime
+              displayFormat="MM/DD/YYYY"
+              min="2020-03-14"
+              max="2040-12-09"
+              value="2020-01-01T15:03:46.789"
+            >
             </ion-datetime>
             <p>To</p>
-            <ion-datetime displayFormat="MM/DD/YYYY" min="2020-03-14" max="2040-12-09" value="2020-01-01T15:03:46.789">
+            <ion-datetime
+              displayFormat="MM/DD/YYYY"
+              min="2020-03-14"
+              max="2040-12-09"
+              value="2020-01-01T15:03:46.789"
+            >
             </ion-datetime>
             <p>Repeat yearly</p>
             <ion-checkbox checked="true"></ion-checkbox>
