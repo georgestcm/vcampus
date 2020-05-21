@@ -326,3 +326,6 @@ ion-content ion-textarea {
   border-radius: 14px;
   border: 1px solid #80808030;
 }
+.sc-ion-card-md-h{
+  background-color: #ffffff !important;
+}
