@@ -12,52 +12,105 @@ export class AddCoursePage implements OnInit {
   topicNumber = 1;
 
   sectionList = [];
-  chapterList = [];
-  activeSectionNum = 1;
+  initialLoad = true;
+  lastSection = 0;
 
-  lastChapter = 0;
+  totalSections = [];
 
   ngOnInit() {
-    this.addChapter(0);
+    this.addNewSection();
+    this.addNewChapter(this.lastSection);
   }
 
-  addChapter(chapterNum) {
-    var chapter = {
-      chapterNum: chapterNum + 1,
+  sectionChanged(eve) {
+    document.querySelector("#section_" + eve.target.value).scrollIntoView();
+  }
+
+  // function to add new section starts
+  addNewSection() {
+    var section = {
+      sectionNum: this.lastSection + 1,
+      sectionName: "",
+      chapters: [
+        {
+          chapterNum: 1,
+          chapterName: "",
+          topics: [
+            {
+              topicNum: 1,
+              topicName: "",
+              paragraphs: [{ paragraphNum: 1, paragraph: "", file: "" }],
+            },
+          ],
+        },
+      ],
+    };
+
+    this.sectionList.push(section);
+    this.lastSection = this.lastSection + 1;
+    this.totalSections.push(this.lastSection);
+  }
+  // function to add new section ends
+
+  addNewChapter(sectionNum) {
+    var sectionIndex = this.sectionList.findIndex(
+      (x) => x.sectionNum == sectionNum
+    );
+    var selectedSection = this.sectionList[sectionIndex];
+
+    var lastChapter =
+      selectedSection.chapters[selectedSection.chapters.length - 1];
+
+    if (this.initialLoad) {
+      this.initialLoad = false;
+      return;
+    }
+
+    var newChapter = {
+      chapterNum: lastChapter.chapterNum + 1,
       chapterName: "",
       topics: [
         {
           topicNum: 1,
           topicName: "",
-          paragraphs: [{ paragraphNum: 1, paragraph: "" }],
+          paragraphs: [{ paragraphNum: 1, paragraph: "", file: "" }],
         },
       ],
     };
 
-    this.chapterList.push(chapter);
-    this.lastChapter = chapterNum + 1;
+    this.sectionList[sectionIndex].chapters.push(newChapter);
   }
 
-  addTopic(chapterNum) {
-    var chapterIndex = this.chapterList.findIndex(
+  addNewTopic(chapterNum, sectionNum) {
+    var sectionIndex = this.sectionList.findIndex(
+      (x) => x.sectionNum == sectionNum
+    );
+    var selectedSection = this.sectionList[sectionIndex];
+
+    var chapterIndex = selectedSection.chapters.findIndex(
       (x) => x.chapterNum == chapterNum
     );
-    var lastChapter = this.chapterList[chapterIndex];
+    var selectedChapter = selectedSection.chapters[chapterIndex];
 
-    var lastTopic = lastChapter.topics[lastChapter.topics.length - 1];
+    var lastTopic = selectedChapter.topics[selectedChapter.topics.length - 1];
     var newTopic = {
       topicNum: lastTopic.topicNum + 1,
       topicName: "",
-      paragraphs: [{ paragraphNum: 1, paragraph: "" }],
+      paragraphs: [{ paragraphNum: 1, paragraph: "", file: "" }],
     };
-    this.chapterList[chapterIndex].topics.push(newTopic);
+    this.sectionList[sectionIndex].chapters[chapterIndex].topics.push(newTopic);
   }
 
-  addParagraph(chapterNum, topicNum) {
-    var chapterIndex = this.chapterList.findIndex(
+  addNewParagraph(topicNum, chapterNum, sectionNum) {
+    var sectionIndex = this.sectionList.findIndex(
+      (x) => x.sectionNum == sectionNum
+    );
+    var selectedSection = this.sectionList[sectionIndex];
+
+    var chapterIndex = selectedSection.chapters.findIndex(
       (x) => x.chapterNum == chapterNum
     );
-    var selectedChapter = this.chapterList[chapterIndex];
+    var selectedChapter = selectedSection.chapters[chapterIndex];
 
     var topicIndex = selectedChapter.topics.findIndex(
       (x) => x.topicNum == topicNum
@@ -70,16 +123,17 @@ export class AddCoursePage implements OnInit {
     var newParagraph = {
       paragraphNum: lastParagraph.paragraphNum + 1,
       paragraph: "",
+      file: "",
     };
 
-    this.chapterList[chapterIndex].topics[topicIndex].paragraphs.push(
-      newParagraph
-    );
+    this.sectionList[sectionIndex].chapters[chapterIndex].topics[
+      topicIndex
+    ].paragraphs.push(newParagraph);
   }
 
-  addSection() {
-    var chapters = this.chapterList;
+  saveCourse() {
     console.clear();
-    console.dir(chapters);
+    console.dirxml(this.sectionList);
+    alert("Course Saved..");
   }
 }

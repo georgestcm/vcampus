@@ -5,59 +5,81 @@
 <ion-content>
   <div class="wrapper">
     <div class="add_course">
-      <ion-label>Section</ion-label>
-      <div class="add_course_content">
-        <select name="section">
-          <option>{{sectionNumber}}</option>
-        </select>
-
-        <div
-          *ngFor="let chapter of chapterList; let chapterNo = index"
-          class="{{'chapter_' + (chapterNo + 1)}} chapters"
+      <ion-label>Goto Section</ion-label>
+      <select class="ml-5" name="section" (change)="sectionChanged($event)">
+        <option *ngFor="let secNo of totalSections" value="{{secNo}}"
+          >{{secNo}}</option
         >
-          <ion-label>Chapter {{chapterNo + 1}}</ion-label>
-          <ion-input [(ngModel)]="chapter.chapterName"></ion-input>
+      </select>
 
+      <ion-button class="ml-10" (click)="saveCourse()">Save Course</ion-button>
+
+      <div
+        *ngFor="let section of sectionList; let sectionNo = index"
+        id="{{'section_' + (sectionNo + 1)}}"
+        class="sections"
+      >
+        <ion-item-divider></ion-item-divider>
+        <div class="add_course_content">
+          <div>
+            <ion-label>Section {{sectionNo + 1}}</ion-label>
+            <ion-input [(ngModel)]="section.sectionName"></ion-input>
+          </div>
           <div
-            *ngFor="let topic of chapter['topics']; let topicNo = index"
-            class="{{'topic_' + (topicNo + 1)}} topics"
+            *ngFor="let chapter of section['chapters']; let chapterNo = index"
+            class="{{'chapter_' + (chapterNo + 1)}} chapters"
           >
-            <ion-label>Topic {{topicNo + 1}}</ion-label>
-            <ion-input [(ngModel)]="topic.topicName"></ion-input>
+            <ion-label>Chapter {{chapterNo + 1}}</ion-label>
+            <ion-input [(ngModel)]="chapter.chapterName"></ion-input>
+
             <div
-              *ngFor="let paragraph of topic['paragraphs']; let paragraphNo = index"
-              class="{{'paragraph_' + (paragraphNo + 1)}} paragraph"
+              *ngFor="let topic of chapter['topics']; let topicNo = index"
+              class="{{'topic_' + (topicNo + 1)}} topics"
             >
-              <ion-label>Paragraph {{paragraphNo + 1}}</ion-label>
-              <ion-textarea rows="10" [(ngModel)]="paragraph.paragraph"> </ion-textarea>
-              <div class="supporting_docs">
-                <div class="file"></div>
-                <div class="select_file">
-                  <ion-icon name="cloud-upload"></ion-icon> Select a file
+              <ion-label>Topic {{topicNo + 1}}</ion-label>
+              <ion-input [(ngModel)]="topic.topicName"></ion-input>
+              <div
+                *ngFor="let paragraph of topic['paragraphs']; let paragraphNo = index"
+                class="{{'paragraph_' + (paragraphNo + 1)}} paragraph"
+              >
+                <ion-label>Paragraph {{paragraphNo + 1}}</ion-label>
+                <ion-textarea rows="10" [(ngModel)]="paragraph.paragraph">
+                </ion-textarea>
+                <div class="supporting_docs">
+                  <div class="file"></div>
+                  <div class="select_file">
+                    <ion-icon name="cloud-upload">
+                    </ion-icon>
+                    Select a file
+                  </div>
                 </div>
               </div>
+              <ion-button
+                class="ml-5"
+                (click)="addNewParagraph(topicNo + 1,chapterNo + 1, sectionNo + 1)"
+                >Add New Paragraph</ion-button
+              >
             </div>
-            <ion-button class="ml-5" (click)="addParagraph((chapterNo + 1), (topicNo + 1))"
-              >Add New Paragraph</ion-button
-            >
+            <div>
+              <ion-button
+                class="ml-10"
+                (click)="addNewTopic(chapterNo + 1, sectionNo + 1)"
+                >Add New Topic</ion-button
+              >
+            </div>
+            <ion-item-divider></ion-item-divider>
           </div>
           <div>
-            <ion-button class="ml-10" (click)="addTopic(chapterNo + 1)"
-              >Add New Topic</ion-button
+            <ion-button (click)="addNewChapter(sectionNo + 1)"
+              >Add Another Chapter</ion-button
             >
           </div>
-          <ion-item-divider></ion-item-divider>
-        </div>
-        <div>
-          <ion-button (click)="addChapter(lastChapter)"
-            >Add Another Chapter</ion-button
-          >
         </div>
       </div>
     </div>
 
     <div class="add_section_btn">
-      <ion-button (click)="addSection()"> 
+      <ion-button (click)="addNewSection()">
         ADD SECTION
       </ion-button>
     </div>
